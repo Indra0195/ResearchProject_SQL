@@ -1,0 +1,61 @@
+Microsoft Windows [Version 10.0.22000.556]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\INDRANI>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ********
+
+
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+mysql> SET GLOBAL local_infile=1;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> quit
+Bye
+
+
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql --local-infile=1 -u root -p
+Enter password: ********
+
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.28 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+
+
+mysql> Use Netflix_Project;
+Database changed
+
+mysql> LOAD DATA LOCAL INFILE 'D:\\INDRANI\\IVY Professional School - Jan 2022 batch\\SQL\\SQL - Final Project\\SQL - Research Project\\Netflix Rotten Tomatoes Dataset\\Netflix Dataset.csv'
+    -> INTO TABLE Netflix_data
+    -> FIELDS TERMINATED BY ','
+    -> ENCLOSED BY '"'
+    -> LINES TERMINATED BY '\r\n' IGNORE 1 ROWS;
+Query OK, 15480 rows affected (0.56 sec)
+Records: 15480  Deleted: 0  Skipped: 0  Warnings: 0
